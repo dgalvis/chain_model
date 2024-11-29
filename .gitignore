@@ -1,0 +1,7 @@
+extra/
+old/
+data/
+*.DS_Store
+*.ai
+*.png
+*.pdf
