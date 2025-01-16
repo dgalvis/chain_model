@@ -13,7 +13,7 @@ p = [LE; LI; g; c; omega];
 
 
 %% Sync
-rng(13);
+rng(1);
 paux = p;
 paux(2) = 1;
 
@@ -115,7 +115,7 @@ axis tight;
 set(gca, 'YDir', 'reverse');
 ylabel('T (periods)');
 
-title('theta_i vs. t');
+%title('theta_i vs. t');
 cobj = colorbar;
 cobj.Ticks = [-pi, 0, pi];
 cobj.TickLabels = {'-\pi', '0', '\pi'};
@@ -124,6 +124,7 @@ clim([-pi, pi]);
 xticks(1:N);
 yticks(linspace(tidx(1), tidx(end), 6));
 yticklabels(0:5);
+set(gca, 'Fontsize', 20);
 
 nexttile;hold all;
 plot(1:N, R, 'k');
@@ -131,12 +132,13 @@ scatter(1:N, R, 100, 'filled', 'k');
 ylim([0,1]);
 xlim([0.5, N+0.5]);
 set(gca, 'YDir', 'normal');
-ylabel('R_i');
+ylabel('R_j');
 xlabel('N');
-sgtitle(['N=', num2str(N), 'g=', num2str(p(3)), 'LI=', num2str(p(2))]);
-xticks(1:N)
+xticks(1:N);
 
-set(gcf, 'Position', [100, 100, 300, 400]);
+%sgtitle(['N=', num2str(N), 'g=', num2str(p(3)), 'LI=', num2str(p(2))]);
+set(gca, 'Fontsize', 20);
+set(gcf, 'Position', [100, 100, 400, 400]);
 
 end
 

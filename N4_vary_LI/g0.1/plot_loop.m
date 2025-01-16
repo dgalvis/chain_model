@@ -16,10 +16,10 @@ scatter(LI(1), x(1), 50, 'filled', 's', 'MarkerEdgeColor', colors(6,:), 'MarkerF
 
 xlim([-0.1, 0.02]);
 ylim([0.96, 0.977]);
-xlabel('\lambda_i');
+xlabel('\lambda_{(i)}');
 ylabel('R_1');
 box on;
-set(gca, 'FontSize', 16, 'LineWidth', 1); % Customize axis properties
+set(gca, 'FontSize', 20, 'LineWidth', 1); % Customize axis properties
 
 
 %%
@@ -78,10 +78,10 @@ plot(LIs(stabs(1,1):stabs(1,2)), xs(end, stabs(1,1):stabs(1,2)) + 2*pi,  '-', 'c
 axis tight;
 xlim([-0.11, 0.02]);
 ylim([0-0.1, 2*pi+0.1]);
-xlabel('\lambda_i');
+xlabel('\lambda_{(i)}');
 ylabel('\phi_N');
 box on;
-set(gca, 'FontSize', 16, 'LineWidth', 1); % Customize axis properties
+set(gca, 'FontSize', 24, 'LineWidth', 1); % Customize axis properties
 
 %%
 N = 4;
@@ -160,7 +160,7 @@ axis tight;
 set(gca, 'YDir', 'reverse');
 ylabel('T (periods)');
 
-title('theta_i vs. t');
+%title('theta_i vs. t');
 cobj = colorbar;
 cobj.Ticks = [-pi, 0, pi];
 cobj.TickLabels = {'-\pi', '0', '\pi'};
@@ -170,17 +170,20 @@ xticks(1:N);
 yticks(linspace(tidx(1), tidx(end), 6));
 yticklabels(0:5);
 
+set(gca, 'Fontsize', 20);
+
 nexttile;hold all;
 plot(1:N, R, 'k');
 scatter(1:N, R, 100, 'filled', 'k');
 ylim([0,1]);
 xlim([0.5, N+0.5]);
 set(gca, 'YDir', 'normal');
-ylabel('R_i');
+ylabel('R_j');
 xlabel('N');
-sgtitle(['N=', num2str(N), 'g=', num2str(p(3)), 'LI=', num2str(p(2))]);
+%sgtitle(['N=', num2str(N), 'g=', num2str(p(3)), 'LI=', num2str(p(2))]);
 xticks(1:N)
 
-set(gcf, 'Position', [100, 100, 200, 400]);
+set(gca, 'Fontsize', 20);
+set(gcf, 'Position', [100, 100, 300, 400]);
 
 end
