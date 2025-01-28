@@ -63,7 +63,7 @@ xlim([zero_min, one_max]);
 
 % Customize the plot
 title(['N = ', num2str(N_list(Nidx))]); % Title with current number of elements
-xlabel('\lambda_{(i)}'); % New X-axis label
+xlabel('$\lambda_{\mathrm{int}}$', 'Interpreter', 'latex'); % New X-axis label
 ylabel('g'); % New Y-axis label
 set(gca, 'FontSize', 24, 'LineWidth', 1.5); % Customize axis properties
 box on; % Add a box around the plot
@@ -101,7 +101,7 @@ xlim([zero_min, one_max]);
 
 % Customize the plot
 title(['N = ', num2str(N_list(Nidx))]); % Title with current number of elements
-xlabel('\lambda_{(i)}'); % New X-axis label
+xlabel('$\lambda_{\mathrm{int}}$', 'Interpreter', 'latex'); % New X-axis label
 ylabel('g'); % New Y-axis label
 set(gca, 'FontSize', 24, 'LineWidth', 1.5); % Customize axis properties
 box on; % Add a box around the plot
