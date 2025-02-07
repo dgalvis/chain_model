@@ -2,19 +2,19 @@
 clear;clc;
 addpath('../../func_aux');
 %% Original Image
-% figure();hold all;
-% thm.special = {};
-% coco_plot_bd(thm, 'run_sync', 'lambdaI', 'x');
-% 
-% coco_plot_bd(thm, 'run_symm', 'lambdaI', 'x');
-% coco_plot_bd(thm, 'run_loop', 'lambdaI', 'x');
-% coco_plot_bd(thm, 'run_anti', 'lambdaI', 'x');
-% coco_plot_bd(thm, 'run_zero', 'lambdaI', 'x');
-% 
-% box on;
-% 
-% title('g = 0.1 / N = 4');
-% ylabel('R_1^*');
+figure();hold all;
+thm.special = {};
+coco_plot_bd(thm, 'run_sync', 'lambdaI', 'x');
+
+coco_plot_bd(thm, 'run_symm', 'lambdaI', 'x');
+coco_plot_bd(thm, 'run_loop', 'lambdaI', 'x');
+coco_plot_bd(thm, 'run_anti', 'lambdaI', 'x');
+coco_plot_bd(thm, 'run_zero', 'lambdaI', 'x');
+
+box on;
+
+title('g = 0.1 / N = 4');
+ylabel('R_1^*');
 %%
 figure();hold all;
 colors = get_colors();

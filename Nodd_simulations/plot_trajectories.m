@@ -54,6 +54,9 @@ T((Nb+1)/2) = nan;
 R((Nb+1)/2)
 plot_graph([R,T(2:end)], pb, Nb);pause(0.1);
 
+abs(nanmean(R.*(cos(T) + 1j*sin(T))))
+abs(nanmean((cos(T) + 1j*sin(T))))
+
 %% N = 11
 
 rng(1);

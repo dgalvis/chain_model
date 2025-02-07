@@ -29,11 +29,12 @@ plot_graph(y, paux, N);
 exportgraphics(gcf, 'sync.eps', 'Resolution', 300);
 
 %% Symmetric Wave
+
 rng(13);
 paux = p;
 paux(2) = -0.06;
 
-y0 = rand(1, 2*N-1);
+y0 = [rand(1, N), pi*rand(1, N-1)];
 tspan = [0,1000000];
 options = odeset(AbsTol=1e-12, RelTol=1e-12, Jacobian=@(t,y)SL_polar_jac(t,y, paux, N));
 [~,y] = ode15s(@(t,y)SL_polar_vf(t, y, paux, N), tspan, y0, options);
@@ -41,15 +42,15 @@ options = odeset(AbsTol=1e-12, RelTol=1e-12, Jacobian=@(t,y)SL_polar_jac(t,y, pa
 max(abs(SL_polar_vf(0, y(end,:)', paux, N)))
 
 plot_graph(y, paux, N);
-
 exportgraphics(gcf, 'symm.eps', 'Resolution', 300);
+
 
 %% Anti-Symmetric Wave
 rng(1);
 paux = p;
 paux(2) = -0.06;
 
-y0 = rand(1, 2*N-1);
+y0 = [rand(1, N), pi*rand(1, N-1)];
 tspan = [0,1000000];
 options = odeset(AbsTol=1e-12, RelTol=1e-12, Jacobian=@(t,y)SL_polar_jac(t,y, paux, N));
 [~,y] = ode15s(@(t,y)SL_polar_vf(t, y, paux, N), tspan, y0, options);
@@ -72,7 +73,10 @@ omegab = 2*pi;
 pb = [LEb; LIb; gb; cb; omegab];
 
 
-y0 = rand(1, 2*Nb);
+R0 = rand(1, Nb);
+T0 = [0, pi*rand(1, Nb-1)];
+
+y0 = [R0.*cos(T0), R0.*sin(T0)];
 tspan = [0,1000];
 options = odeset(AbsTol=1e-12, RelTol=1e-12, Jacobian=@(t,y)SL_jac(t,y, pb, Nb));
 [~,y] = ode15s(@(t,y)SL_vf(t, y, pb, Nb), tspan, y0, options);
